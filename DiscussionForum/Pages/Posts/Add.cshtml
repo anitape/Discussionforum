@@ -1,0 +1,32 @@
+﻿@page
+@model DiscussionForum.Pages.Posts.AddModel
+@{
+}
+
+<div class="bg-secondary bg-opacity-10 py-2">
+
+    <div class="container">
+        <h1>New Post</h1>
+    </div>
+</div>
+
+<div>
+    <div class="container">
+        <form method="post">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" asp-for="PostTopicRequest.Title"/>
+               </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Content</label>
+                <textarea class="form-control" id="description" asp-for="PostTopicRequest.Description"></textarea>
+               
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>

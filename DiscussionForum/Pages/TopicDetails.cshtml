@@ -1,0 +1,65 @@
+﻿@page
+@model DiscussionForum.Pages.TopicDetailsModel
+
+		<div class="card  container pt-4">
+			<div class="card-header bg-primary text-light ml-0  row ">
+				<div class="col-12 col-md-6">
+					<h1 class="text-white-50">@Model.objTopic.Title</h1>				
+				</div>				
+			</div>
+			<div class="card-body row container">
+				<div class="container rounded p-2">
+					<div class="row">
+						<div class="col-12 col-lg-3 offset-lg-1 text-center">
+							<p class="text-purple">@Model.objTopic.Description</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	@foreach (var obj in Model.objReplyList)
+	{
+		<div class="row p-2">
+			<div class="col-12 p-1" style="border:1px solid #008cba; border-radius: 5px;">
+			<div class="pl-1">
+				<p class="text-info">@obj.Content</p>
+			</div>
+		</div>
+	</div>
+	}
+	<form method="post">
+	<input hidden asp-for="@Model.objTopic.TopicId" />
+	<input hidden asp-for="@Model.objTopic.Title" />
+	<input hidden asp-for="@Model.objTopic.Description" />
+	<input hidden asp-for="@Model.objTopic.AuthorUserId" />
+	<input hidden value="1" asp-for="@Model.replyUserId" />
+		<div>
+			<div class="container">
+				<div class="row p-2">
+					<div class="col-6 p-1">
+						<div class="bg-secondary bg-opacity-10 py-2">
+
+							<div class="container">
+								<h4>New Comment</h4>
+							</div>
+						</div>
+
+						@*<div class="mb-3">
+							<label for="title" class="form-label">Title</label>
+							<input type="text" class="form-control" id="title" asp-for="PostTopicRequest.Title" />
+						</div>*@
+						<div class="mb-3">
+							<label for="description" class="form-label">Content</label>
+							<textarea class="form-control" id="description" asp-for="@Model.reply"></textarea>
+						</div>
+						<div class="mb-3">
+							<button class="btn btn-primary" type="submit">Submit</button>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>

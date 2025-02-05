@@ -1,0 +1,31 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div class="text-center">
+	<h2 class="display-4">Popular Topics</h2>
+</div>
+
+@foreach (var topic in Model.objTopicList)
+{
+		<div class="row p-2">
+			<div class="col-12 p-1" style="border:1px solid #008cba; border-radius: 5px;">	
+				<div class="pl-1">
+					<p class="h1 text-primary">@topic.Title</p>
+					<p class="text-info">@topic.Description</p>
+				</div>						
+				<div>
+					<a asp-page="TopicDetails" class="btn btn-primary form-control" asp-route-topicId="@topic.TopicId">
+					Read more
+					</a>
+				</div>
+			</div>
+		</div>
+}
